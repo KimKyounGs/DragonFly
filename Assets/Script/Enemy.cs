@@ -24,4 +24,13 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.instance.UpdateLife(false);
+            Destroy(gameObject);
+        }
+    }
 }

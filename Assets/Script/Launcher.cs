@@ -13,6 +13,8 @@ public class Launcher : MonoBehaviour
     {
         // 미사일 프리팹, 런처포지션, 방향값
         Instantiate(bullet, transform.position, Quaternion.identity);
+
+        SoundManager.instance.PlayBulletSound();
     }
 
     void Update()

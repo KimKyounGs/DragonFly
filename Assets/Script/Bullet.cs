@@ -25,10 +25,16 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            GameManager.instance.AddScore(10);
             // 폭발 이펙트 생성
             Instantiate(explosion, transform.position, Quaternion.identity);
+
+            // 적 죽는 사운드
+            SoundManager.instance.SoundDie();
+
             //적지우기
             Destroy(collision.gameObject);
+
             //총알 지우기 자기자신
             Destroy(gameObject);
         }
